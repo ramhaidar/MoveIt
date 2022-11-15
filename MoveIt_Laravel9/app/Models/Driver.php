@@ -13,9 +13,11 @@ class Driver extends Model
 
     protected $primaryKey = 'driver_id';
     protected $table = 'drivers';
+    public $incrementing = false;
 
     // TODO: isi sama kolom yg ada di tabel drivers
     protected $fillable = [
+        'driver_id',
         'name',
         'username',
         'email',

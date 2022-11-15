@@ -19,16 +19,37 @@ use App\Http\Middleware\IsAdminMiddleware;
 
 Route::get('/', [UserController::class, 'cek_login'])->name('home');
 
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/register', [UserController::class, 'register_action'])->name('register.action');
-Route::get('/register-driver', [UserController::class, 'register_driver'])->name('register_driver');
-Route::post('/register-driver', [UserController::class, 'register_driver_action'])->name('register.driver.action');
+Route::get('/welcome', function () {
+    return view("welcome");
+});
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login', [UserController::class, 'login_action'])->name('login.action');
+Route::get('/home', [UserController::class, 'home']);
 
-Route::get('/password', [UserController::class, 'password'])->name('password');
-Route::post('/password', [UserController::class, 'password_action'])->name('password.action');
+Route::get('/test', function() {
+    return view("test");
+});
+
+Route::get('/registrasi-customer', [UserController::class, 'registrasi_customer'])
+    ->name('registrasi-customer');
+Route::post('/registrasi-customer', [UserController::class, 'registrasi_customer_action'])
+    ->name('registrasi.customer.action');
+Route::get('/registrasi-driver', [UserController::class, 'registrasi_driver'])
+    ->name('registrasi-driver');
+Route::post('/registrasi-driver', [UserController::class, 'registrasi_driver_action'])
+    ->name('registrasi.driver.action');
+
+Route::get('/login', [UserController::class, 'login'])
+    ->name('login');
+Route::post('/login', [UserController::class, 'login_action'])
+    ->name('login.action');
+
+Route::get('/cek-login', [UserController::class, 'cek_login'])
+    ->name('cek-login');
+
+Route::get('/ganti-password', [UserController::class, 'ganti_password'])
+    ->name('ganti-password');
+Route::post('/ganti-password', [UserController::class, 'ganti_password_action'])
+    ->name('ganti.password.action');
 
 // Authentication Guard #START
 Route::get('/hanya-driver', function () {

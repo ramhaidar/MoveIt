@@ -1,9 +1,12 @@
+@section('title', 'Login')
+
 @extends('app')
+
 @section('content')
 
     <div class="vh-100 d-flex justify-content-center align-items-center">
         <div class="login-box">
-            <img class="mx-auto d-block img-circle" src="{{URL::asset('/logo/MoveIt_Circle.png')}}">
+            <img class="mx-auto d-block img-circle mb-4" src="{{URL::asset('/logo/MoveIt_Circle.png')}}">
             
             @if(session('success'))
                 <p class="alert alert-success">{{ session('success') }}</p>
