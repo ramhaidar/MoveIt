@@ -1,6 +1,8 @@
-Diagram (Use Case & Class Diagram):
-- https://app.diagrams.net/#G19X4JifnsSyD8TdBTR5S8XZwBw67yJyVe
-- https://app.diagrams.net/#G1z7o9svEaepMaAkZB-UJwrj6IidTeTAyI
-SKPL: https://docs.google.com/document/d/1YZJwZPmK_cp0WlCVQwMDBfiHo6tkZZIo/edit?usp=sharing&ouid=113929999720775121922&rtpof=true&sd=true
-DDPL: https://docs.google.com/document/d/107GHTVpoFJ7-TtadbI2KCHVgxKMGuTmd/edit?usp=sharing&ouid=113929999720775121922&rtpof=true&sd=true
-DUPL: https://docs.google.com/document/d/18KI_rGzgREigVVquMpeaAUqRNUOgt3Rd/edit?usp=sharing&ouid=113929999720775121922&rtpof=true&sd=true
+> GitHub: https://github.com/NakHalal/RPL_Impal_05/
+> Diagram (Use Case & Class Diagram):
+  - https://app.diagrams.net/#G19X4JifnsSyD8TdBTR5S8XZwBw67yJyVe
+  - https://app.diagrams.net/#G1z7o9svEaepMaAkZB-UJwrj6IidTeTAyI
+> SKPL: https://docs.google.com/document/d/1YZJwZPmK_cp0WlCVQwMDBfiHo6tkZZIo/edit?usp=sharing&ouid=113929999720775121922&rtpof=true&sd=true
+> DDPL: https://docs.google.com/document/d/107GHTVpoFJ7-TtadbI2KCHVgxKMGuTmd/edit?usp=sharing&ouid=113929999720775121922&rtpof=true&sd=true
+> DUPL: https://docs.google.com/document/d/18KI_rGzgREigVVquMpeaAUqRNUOgt3Rd/edit?usp=sharing&ouid=113929999720775121922&rtpof=true&sd=true
+> Video (16 November 2022): https://drive.google.com/file/d/1br06pHvnbBeBRU84eNXFtBTAO8bN1e-z/view?usp=sharing
