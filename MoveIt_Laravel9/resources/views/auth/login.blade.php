@@ -81,7 +81,7 @@
 
                                 <div class="mb-3">
                                     <button class="btn btn-primary form-control mb-2 mt-2">Login</button>
-                                    <a class="btn bg-dark text-white form-control" href="{{ route('home') }}">Back</a>
+                                    <a class="btn bg-dark text-white form-control" href="{{ route('home') }}">Kembali</a>
                                 </div>
 
                                 <div class="mt-4">

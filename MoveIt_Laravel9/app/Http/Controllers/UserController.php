@@ -120,7 +120,8 @@ class UserController extends Controller
         }
 
         return back()->withErrors([
-            'password' => 'Wrong username or password',
+            'username' => 'Username dan/atau Password Salah.',
+            'password' => 'Username dan/atau Password Salah.',
         ]);
     }
 
@@ -139,7 +140,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
         $request->session()->regenerate();
-        return back()->with('success', 'Password changed!');
+        return back()->with('success', 'Password Berhasil Diganti!');
     }
 
     public function logout(Request $request)

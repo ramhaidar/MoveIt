@@ -93,7 +93,7 @@
                             <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
                         </li>
                     </ul> --}}
-
+                
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
                 <ul class="navbar-nav list-inline">
@@ -120,15 +120,16 @@
                         </li> --}}
                     <li>
                         @auth
+                        
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             @if ($users->is_admin)
-                            <a class="btn btn-success me-md-1">Peran: Admin</a>
+                            <a class="btn btn-success me-md-1">Admin</a>
                             @endif
                             @if ($users->is_customer)
-                            <a class="btn btn-success me-md-1">Peran: Customer</a>
+                            <a class="btn btn-success me-md-1">Customer</a>
                             @endif
                             @if ($users->is_driver)
-                            <a class="btn btn-success me-md-1">Peran: Driver</a>
+                            <a class="btn btn-success me-md-1">Driver</a>
                             @endif
                             <a class="btn btn-dark me-md-1 bg-dark" href="{{ route('ganti-password') }}" role="button">Ganti Password</a>
                             <a class="btn btn-dark bg-dark" href="{{ route('logout') }}" role="button">Logout</a>
@@ -153,8 +154,8 @@
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-mdb-target="#introCarousel" data-mdb-slide-to="0" class="active"></li>
-            <li data-mdb-target="#introCarousel" data-mdb-slide-to="1"></li>
-            <li data-mdb-target="#introCarousel" data-mdb-slide-to="2"></li>
+            {{-- <li data-mdb-target="#introCarousel" data-mdb-slide-to="1"></li>
+            <li data-mdb-target="#introCarousel" data-mdb-slide-to="2"></li> --}}
         </ol>
 
         <!-- Inner -->
@@ -166,6 +167,11 @@
                         <div class="text-white text-center">
                             <h1 class="mb-3">Deliver Faster</h1>
                             <h5 class="mb-4">The 24/7 on-demand delivery app</h5>
+                            @auth
+                            <div class="d-grid gap-2">
+                                <button class="mt-2 btn btn-primary" type="button">Dashhboard</button>
+                            </div>
+                            @endauth
                             {{-- <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button" rel="nofollow" target="_blank">Start tutorial</a>
                                 <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank" role="button">Download MDB UI KIT</a> --}}
                         </div>
@@ -174,7 +180,7 @@
             </div>
 
             <!-- Single item -->
-            <div class="carousel-item">
+            {{-- <div class="carousel-item">
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
@@ -183,10 +189,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Single item -->
-            <div class="carousel-item">
+            {{-- <div class="carousel-item">
                 <div class="mask" style="
                 background: linear-gradient(
                   45deg,
@@ -198,23 +204,23 @@
                         <div class="text-white text-center">
                             <h1 class="mb-3">Deliver Faster</h1>
                             <h5 class="mb-4">The 24/7 on-demand delivery app</h5>
-                            {{-- <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/content-styles/masks/" target="_blank" role="button">Learn about masks</a> --}}
+                            <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/content-styles/masks/" target="_blank" role="button">Learn about masks</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- Inner -->
 
         <!-- Controls -->
-        <a class="carousel-control-prev" href="#introCarousel" role="button" data-mdb-slide="prev">
+        {{-- <a class="carousel-control-prev" href="#introCarousel" role="button" data-mdb-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#introCarousel" role="button" data-mdb-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a>
+        </a> --}}
     </div>
     <!-- Carousel wrapper -->
 </header>

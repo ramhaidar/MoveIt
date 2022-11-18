@@ -53,8 +53,12 @@
 
                             <img class="mx-auto d-block img-circle mb-4" src="{{URL::asset('/logo/MoveIt_Circle.png')}}">
 
-                            @if ($errors->any())
-                            @foreach ($errors->all() as $err)
+                            @if(session('success'))
+                            <p class="alert alert-success">{{ session('success') }}</p>
+                            @endif
+
+                            @if($errors->any())
+                            @foreach($errors->all() as $err)
                             <p class="alert alert-danger">{{ $err }}</p>
                             @endforeach
                             @endif
@@ -146,7 +150,7 @@
 
                                 <div class="mb-3">
                                     <button class="btn btn-primary form-control mb-2 mt-2">Register</button>
-                                    <a class="btn bg-dark text-white form-control" href="{{ route('home') }}">Back</a>
+                                    <a class="btn bg-dark text-white form-control" href="{{ route('home') }}">Kembali</a>
                                 </div>
 
                                 <div class="mt-4">
