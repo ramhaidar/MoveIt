@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('drivers', function (Blueprint $table) {
-            $table->id              ('driver_id');
+            $table->id              ('id');
             // $table->string          ('nama');
             // $table->string          ('nik')->unique();
             // $table->string          ('email')->unique();
@@ -24,7 +24,7 @@ return new class extends Migration
             // $table->rememberToken   ();
             $table->timestamps      ();
 
-            $table->foreign('driver_id')->references('user_id')->on('users');
+            // $table->foreign('driver_id')->references('user_id')->on('users');
         });
     }
 

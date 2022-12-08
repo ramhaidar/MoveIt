@@ -17,7 +17,6 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::create([
-            'user_id' => '1',
             'name' => 'Haidaruddin Muhammad Ramdhan',
             'username' => 'haidar',
             'email' => 'haidaruddinmuhammadr@gmail.com',
@@ -28,7 +27,6 @@ class AdminSeeder extends Seeder
         ]);
 
         User::create([
-            'user_id' => '2',
             'name' => 'Radli Maulana Arief',
             'username' => 'radli',
             'email' => 'radlimaulanaf@gmail.com',
@@ -39,7 +37,6 @@ class AdminSeeder extends Seeder
         ]);
 
         User::create([
-            'user_id' => '3',
             'name' => 'Argya Mauluvy Senjaya',
             'username' => 'argya',
             'email' => 'argyamauluvy@gmail.com',
@@ -50,7 +47,6 @@ class AdminSeeder extends Seeder
         ]);
 
         User::create([
-            'user_id' => '4',
             'name' => 'Muhammad Farisal Imtiyaz',
             'username' => 'farisal',
             'email' => 'muhammadfarisali@gmail.com',

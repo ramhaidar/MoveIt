@@ -19,6 +19,7 @@ class IsAdminMiddleware
         if ($request->user()->is_admin) {
             return $next($request);
         }
-        return response()->json(['error' => 'you are not an Admin!'], 403);
+        // return response()->json(['error' => 'you are not an Admin!'], 403);
+        return redirect()->route('home');
     }
 }

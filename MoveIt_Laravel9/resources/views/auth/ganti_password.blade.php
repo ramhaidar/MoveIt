@@ -86,7 +86,7 @@
 
                                 <div class="mb-3">
                                     <button class="btn btn-primary form-control mb-2 mt-2">Ganti Password</button>
-                                    <a class="btn bg-dark text-white form-control" href="{{ route('home') }}">Kembali</a>
+                                    <a class="btn bg-dark text-white form-control" href="{{ URL::previous() }}">Kembali</a>
                                 </div>
 
                                 {{-- <div class="mt-4">

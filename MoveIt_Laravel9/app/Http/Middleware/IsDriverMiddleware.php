@@ -19,6 +19,7 @@ class IsDriverMiddleware
         if ($request->user()->is_driver) {
             return $next($request);
         }
-        return response()->json(['error' => 'you are not an Driver!'], 403);
+        // return response()->json(['error' => 'you are not an Driver!'], 403);
+        return redirect()->route('home');
     }
 }

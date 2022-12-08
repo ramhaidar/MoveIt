@@ -93,7 +93,7 @@
                             <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
                         </li>
                     </ul> --}}
-                
+
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
                 <ul class="navbar-nav list-inline">
@@ -120,19 +120,29 @@
                         </li> --}}
                     <li>
                         @auth
-                        
+
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             @if ($users->is_admin)
                             <a class="btn btn-success me-md-1">Admin</a>
                             @endif
-                            @if ($users->is_customer)
-                            <a class="btn btn-success me-md-1">Customer</a>
-                            @endif
                             @if ($users->is_driver)
                             <a class="btn btn-success me-md-1">Driver</a>
                             @endif
-                            <a class="btn btn-dark me-md-1 bg-dark" href="{{ route('ganti-password') }}" role="button">Ganti Password</a>
-                            <a class="btn btn-dark bg-dark" href="{{ route('logout') }}" role="button">Logout</a>
+                            @if ($users->is_customer)
+                            <a class="btn btn-success me-md-1">Customer</a>
+                            @endif
+                            {{-- <a class="btn btn-dark me-md-1 bg-dark" href="{{ route('ganti-password') }}" role="button">Ganti Password</a> --}}
+                            {{-- <a class="btn btn-dark bg-dark" href="{{ route('logout') }}" role="button">Logout</a> --}}
+                            @if ($users->is_admin)
+                            <a class="btn btn-primary" href="{{ route('dashboard_admin') }}" role="button">Dashboard</a>
+                            @endif
+                            @if ($users->is_driver)
+                            <a class="btn btn-primary" href="{{ route('dashboard_driver') }}" role="button">Dashboard</a>
+                            @endif
+                            @if ($users->is_customer)
+                            <a class="btn btn-primary" href="{{ route('dashboard_customer') }}" role="button">Dashboard</a>
+                            @endif\
+
                         </div>
                         @endauth
                         @guest
@@ -167,20 +177,20 @@
                         <div class="text-white text-center">
                             <h1 class="mb-3">Deliver Faster</h1>
                             <h5 class="mb-4">The 24/7 on-demand delivery app</h5>
-                            @auth
+                            {{-- @auth
                             <div class="d-grid gap-2">
-                                <button class="mt-2 btn btn-primary" type="button">Dashhboard</button>
-                            </div>
-                            @endauth
-                            {{-- <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button" rel="nofollow" target="_blank">Start tutorial</a>
-                                <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank" role="button">Download MDB UI KIT</a> --}}
+                                <a class="mt-2 btn btn-primary" href="{{ route('admin_dashboard') }}" role="button">Dashhboard</a>
                         </div>
+                        @endauth --}}
+                        {{-- <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button" rel="nofollow" target="_blank">Start tutorial</a>
+                                <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank" role="button">Download MDB UI KIT</a> --}}
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Single item -->
-            {{-- <div class="carousel-item">
+        <!-- Single item -->
+        {{-- <div class="carousel-item">
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
@@ -191,8 +201,8 @@
                 </div>
             </div> --}}
 
-            <!-- Single item -->
-            {{-- <div class="carousel-item">
+        <!-- Single item -->
+        {{-- <div class="carousel-item">
                 <div class="mask" style="
                 background: linear-gradient(
                   45deg,
@@ -209,11 +219,11 @@
                     </div>
                 </div>
             </div> --}}
-        </div>
-        <!-- Inner -->
+    </div>
+    <!-- Inner -->
 
-        <!-- Controls -->
-        {{-- <a class="carousel-control-prev" href="#introCarousel" role="button" data-mdb-slide="prev">
+    <!-- Controls -->
+    {{-- <a class="carousel-control-prev" href="#introCarousel" role="button" data-mdb-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
@@ -435,8 +445,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2022 Copyright:
-        <a class="text-dark" href="https://mdbootstrap.com/">MoveIt.com</a>
+        MoveIt! © 2022 Copyright:
+        <a class="text-dark">MoveIt.com</a>
     </div>
     <!-- Copyright -->
 </footer>

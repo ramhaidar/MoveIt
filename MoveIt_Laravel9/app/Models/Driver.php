@@ -2,38 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Driver extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $primaryKey = 'driver_id';
+    protected $primaryKey = 'id';
     protected $table = 'drivers';
-    public $incrementing = false;
+    // public $incrementing = false;
 
-    // TODO: isi sama kolom yg ada di tabel drivers
     protected $fillable = [
-        'driver_id',
-        'name',
-        'username',
-        'email',
-        'password',
-        'nomor_polisi',
         'jenis_kendaraan',
-        'is_admin',
-        'is_driver',
-        'is_customer',
+        'nomor_polisi',
     ];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'is_admin',
-        'is_driver',
-        'is_customer',
-    ];
+    // protected $hidden = [
+    // ];
+
+    
 }

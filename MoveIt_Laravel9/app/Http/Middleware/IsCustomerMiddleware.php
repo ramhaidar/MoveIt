@@ -19,6 +19,7 @@ class IsCustomerMiddleware
         if ($request->user()->is_customer) {
             return $next($request);
         }
-        return response()->json(['error' => 'you are not an Customer!'], 403);
+        // return response()->json(['error' => 'you are not an Customer!'], 403);
+        return redirect()->route('home');
     }
 }

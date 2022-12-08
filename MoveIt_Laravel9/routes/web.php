@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Middleware\CekLogin;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\IsCustomerMiddleware;
-use App\Http\Middleware\IsDriverMiddleware;
 use App\Http\Middleware\IsAdminMiddleware;
+use App\Http\Middleware\IsDriverMiddleware;
+use App\Http\Controllers\DashboardController;
+use App\Http\Middleware\IsCustomerMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +32,7 @@ Route::get('/test', function() {
     return view("test");
 });
 
+// * Route Registrasi //
 Route::get('/registrasi-customer', [UserController::class, 'registrasi_customer'])
     ->name('registrasi-customer');
 Route::post('/registrasi-customer', [UserController::class, 'registrasi_customer_action'])
@@ -38,32 +42,60 @@ Route::get('/registrasi-driver', [UserController::class, 'registrasi_driver'])
 Route::post('/registrasi-driver', [UserController::class, 'registrasi_driver_action'])
     ->name('registrasi.driver.action');
 
+// * Route Login & Logout //
 Route::get('/login', [UserController::class, 'login'])
     ->name('login');
 Route::post('/login', [UserController::class, 'login_action'])
     ->name('login.action');
+Route::get('logout', [UserController::class, 'logout'])
+    ->name('logout');
 
+// * Route Cek Login //
 Route::get('/cek-login', [UserController::class, 'cek_login'])
     ->name('cek-login');
 
+// * Route Ganti Password //
 Route::get('/ganti-password', [UserController::class, 'ganti_password'])
-    ->name('ganti-password');
+    ->name('ganti-password')
+    ->middleware(Authenticate::class);
 Route::post('/ganti-password', [UserController::class, 'ganti_password_action'])
-    ->name('ganti.password.action');
+->name('ganti.password.action')
+->middleware(Authenticate::class);
 
-// Authentication Guard #START
+// * Authentication Guard //
 Route::get('/hanya-driver', function () {
     return view("driver");
-})->middleware(IsDriverMiddleware::class)->name('hanya_driver');
+})
+->middleware(Authenticate::class)
+->middleware(IsDriverMiddleware::class)
+->name('hanya_driver');
 
 Route::get('/hanya-customer', function () {
     return view("customer");
-})->middleware(IsCustomerMiddleware::class)->name('hanya_customer');
+})
+    ->middleware(Authenticate::class)
+    ->middleware(IsCustomerMiddleware::class)
+    ->name('hanya_customer');
 
 Route::get('/hanya-admin', function () {
     return view("admin");
-})->middleware(IsAdminMiddleware::class)->name('hanya_admin');
-// Authentication Guard #END
+})
+    ->middleware(Authenticate::class)
+    ->middleware(IsAdminMiddleware::class)
+    ->name('hanya_admin');
 
-Route::get('logout', [UserController::class, 'logout'])->name('logout');
+// * Route Dashboard //
+Route::get('/dashboard-admin', [DashboardController::class, 'admin'])
+    ->middleware(Authenticate::class)
+    ->middleware(IsAdminMiddleware::class)
+    ->name('dashboard_admin');
 
+Route::get('/dashboard-driver', [DashboardController::class, 'driver'])
+    ->middleware(Authenticate::class)
+    ->middleware(IsDriverMiddleware::class)
+    ->name('dashboard_driver');
+
+Route::get('/dashboard-customer', [DashboardController::class, 'customer'])
+    ->middleware(Authenticate::class)
+    ->middleware(IsCustomerMiddleware::class)
+    ->name('dashboard_customer');

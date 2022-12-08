@@ -77,6 +77,12 @@ class UserController extends Controller
         $step3 = DateTime::createFromFormat('d/m/Y', $step2);
         $formatted = $step3->format('Y-m-d');
 
+        $driver = new Driver([
+            'jenis_kendaraan' => $request->jenis_kendaraan,
+            'nomor_polisi' => $request->nomor_polisi,
+        ]);
+        $driver->save();
+
         $user = new User([
             'name' => $request->name,
             'username' => $request->username,
@@ -85,18 +91,11 @@ class UserController extends Controller
             'nik' => $request->nik,
             'password' => Hash::make($request->password),
             'is_driver' => true,
+            'driver_id' => $driver->id,
         ]);
         $user->save();
 
         // $buatID = User::where('name', $request->name)->get('user_id');
-
-        $driver = new Driver([
-            'driver_id' => $user->user_id,
-            'jenis_kendaraan' => $request->jenis_kendaraan,
-            'nomor_polisi' => $request->nomor_polisi,
-        ]);
-
-        $driver->save();
 
         return redirect()->route('login')->with('success', 'Registrasi Sukses. Silahkan Login!');
     }
@@ -116,6 +115,15 @@ class UserController extends Controller
         
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
+            $user = Auth::user();
+            if ($user->is_admin) {
+                return redirect('dashboard-admin');
+            } elseif ($user->is_driver) {
+                return redirect('dashboard-driver');
+            } elseif ($user->is_customer) {
+                return redirect('dashboard-customer');
+            } 
+            
             return redirect()->intended('/');
         }
 
@@ -160,6 +168,8 @@ class UserController extends Controller
         }
         else
         {
+            // return redirect('home');
+            // return redirect()->route('/');
             return view('home');
         }
     }
@@ -171,5 +181,6 @@ class UserController extends Controller
         {
             return view('home', ['users' => $user, 'title' => 'Home'],);
         }
+        return redirect('/');
     }
 }
