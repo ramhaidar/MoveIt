@@ -2,5 +2,6 @@
 
 @section('contentx')
 <head>
+
 </head>
 @endsection
