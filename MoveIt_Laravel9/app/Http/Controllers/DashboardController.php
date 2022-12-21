@@ -204,7 +204,7 @@ class DashboardController extends Controller
                 'account' => $user, 
                 'accountId' => $userId, 
                 'users' => User::all(), 
-                'drivers' => Driver::all()
+                'drivers' => Driver::all(),
             ],);
         }
     }
@@ -215,11 +215,12 @@ class DashboardController extends Controller
         if ($user->is_customer)
         {
             $userId = Auth::id();
-            return view('dashboard.customer.customer_komplain_buat', [
+            return view('dashboard.customer.customer_pesanan_buat', [
                 'account' => $user,
                 'accountId' => $userId,
-                'users' => User::all(),
-                'drivers' => Driver::all()
+                // 'users' => User::all()->where('id', $userId),
+                'users' => User::find($userId),
+                'drivers' => Driver::all(),
             ],);
         }
     }

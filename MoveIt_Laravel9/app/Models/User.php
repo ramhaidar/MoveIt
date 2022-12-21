@@ -33,6 +33,7 @@ class User extends Authenticatable
         'is_driver',
         'is_customer',
         'driver_id',
+        'pause_status',
     ];
 
     /**
@@ -47,6 +48,7 @@ class User extends Authenticatable
         'is_driver',
         'is_customer',
         'driver_id',
+        // 'pause_status',
     ];
 
     /**

@@ -46,6 +46,13 @@
         filter: blur(3px);
     }
 
+    .anyClass {
+        height: 790px;
+        width: 1680px;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+
 </style>
 
 <body id="page-top">
@@ -431,20 +438,23 @@
                 </nav>
                 <!-- End of Topbar -->
 
+                <div class="anyClass">
+                    @yield('contentx')
+                </div>
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    {{-- Yield Contentx --}}
+                    {{-- @yield('contentx') --}}
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
-                        {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
-                    </div>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div> --}}
 
                     <!-- Content Row -->
                     <div class="row">
-
-                        {{-- Yield Contentx --}}
-                        @yield('contentx')
 
                         <!-- Earnings (Monthly) Card Example -->
                         {{-- <div class="col-xl-3 col-md-6 mb-4">
@@ -766,13 +776,13 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>MoveIt! &copy; 2022 Copyright</span>
-                    </div>
-                </div>
-            </footer>
+            {{-- <footer class="sticky-footer bg-white"> --}}
+            {{-- <div class="container my-auto"> --}}
+            <div class="copyright text-center my-auto pb-2">
+                <span>MoveIt! &copy; 2022 Copyright</span>
+            </div>
+            {{-- </div> --}}
+            {{-- </footer> --}}
             <!-- End of Footer -->
 
         </div>
