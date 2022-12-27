@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Factory as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Driver>
@@ -23,7 +23,7 @@ class DriverFactory extends Factory
         $C = $faker->countryISOAlpha3();
         $NOPOL = "$A $B $C";
         return [
-            'jenis_kendaraan' => $faker->randomElement(['Motor', 'Mobil', 'Van', 'PickUp', 'Engkel', 'CDD']),
+            'jenis_kendaraan' => $faker->randomElement(['Motor', 'Van', 'PickUp', 'Engkel', 'CDD']),
             'nomor_polisi' => $NOPOL,
         ];
     }

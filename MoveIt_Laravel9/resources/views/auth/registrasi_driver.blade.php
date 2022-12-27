@@ -125,7 +125,6 @@
                                             <option selected>{{ old('jenis_kendaraan') }}</option>
                                         @endif
                                         <option class="text-dark" value="Motor">Motor</option>
-                                        <option value="Mobil">Mobil</option>
                                         <option value="Van">Van</option>
                                         <option value="PickUp">PickUp</option>
                                         <option value="Engkel">Engkel</option>

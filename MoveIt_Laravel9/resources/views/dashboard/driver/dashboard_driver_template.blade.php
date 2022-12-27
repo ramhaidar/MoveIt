@@ -250,7 +250,7 @@
                     </form> --}}
                     <div>
                         <p></p>
-                        @foreach ($test as $data)
+                        @foreach ($drivers as $data)
                         <a class="fw-lighter text-dark data">Jenis Kendaraan : {{ $data->driver['jenis_kendaraan'] }}</a>
                         <br>
                         <a class="fw-lighter text-dark data">Nomor Polisi : {{ $data->driver['nomor_polisi'] }}</a>
@@ -434,20 +434,24 @@
                 </nav>
                 <!-- End of Topbar -->
 
+                <div class="container-fluid">
+                    @yield('contentx')
+                </div>
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
-                        {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
-                    </div>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div> --}}
 
                     <!-- Content Row -->
                     <div class="row">
 
                         {{-- Yield Contentx --}}
-                        @yield('contentx')
+                        {{-- @yield('contentx') --}}
 
                         <!-- Earnings (Monthly) Card Example -->
                         {{-- <div class="col-xl-3 col-md-6 mb-4">

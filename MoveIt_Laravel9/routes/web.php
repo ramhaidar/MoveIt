@@ -1,15 +1,15 @@
 <?php
 
-use App\Http\Middleware\CekLogin;
-use App\Http\Middleware\Authenticate;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Middleware\PreventLoggedIn;
-use App\Http\Middleware\IsAdminMiddleware;
-use App\Http\Middleware\IsDriverMiddleware;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\IsCustomerMiddleware;
-use App\Http\Middleware\PreventLoginRegister;
+use App\Http\Middleware\IsDriverMiddleware;
+use App\Http\Middleware\PreventLoggedIn;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,18 +20,18 @@ use App\Http\Middleware\PreventLoginRegister;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-// * [Start] Base Route  //  
+// * [Start] Base Route  //
 Route::get('/', [UserController::class, 'cek_login'])->name('home');
 Route::get('/welcome', function () {
     return view("welcome");
 });
 Route::get('/home', [UserController::class, 'home']);
-Route::get('/test', function() {
+Route::get('/test', function () {
     return view("test");
 });
-// * [End] Base Route  //  
+// * [End] Base Route  //
 
 // * [Start] Route Registrasi //
 Route::get('/registrasi-customer', [UserController::class, 'registrasi_customer'])
@@ -107,11 +107,16 @@ Route::get('/dashboard-customer', [DashboardController::class, 'customer'])
     ->name('dashboard_customer');
 // * [End] Route Dashboard //
 
-// * [Start] Route Customer // 
+// * [Start] Route Customer //
 Route::get('/customer-pesanan-buat', [DashboardController::class, 'customer_pesanan_buat'])
     ->middleware(Authenticate::class)
     ->middleware(IsCustomerMiddleware::class)
     ->name('customer_pesanan_buat');
+
+Route::post('/customer-pesanan-buat', [CustomerController::class, 'customer_buat_pesanan'])
+    ->middleware(Authenticate::class)
+    ->middleware(IsCustomerMiddleware::class)
+    ->name('customer.buat.pesanan');
 
 Route::get('/customer-pesanan-proses', [DashboardController::class, 'customer_pesanan_proses'])
     ->middleware(Authenticate::class)
@@ -142,13 +147,21 @@ Route::get('/customer-komplain-riwayat', [DashboardController::class, 'customer_
     ->middleware(Authenticate::class)
     ->middleware(IsCustomerMiddleware::class)
     ->name('customer_komplain_riwayat');
-// * [End] Route Customer // 
+// * [End] Route Customer //
 
 // * [Start] Route Driver //
 Route::get('/driver-pesanan-tersedia', [DashboardController::class, 'driver_pesanan_tersedia'])
     ->middleware(Authenticate::class)
     ->middleware(IsDriverMiddleware::class)
     ->name('driver_pesanan_tersedia');
+
+Route::get('/driver-pesanan-terima/{id}', [DriverController::class, 'driver_pesanan_terima'])
+    ->middleware(Authenticate::class)
+    ->middleware(IsDriverMiddleware::class);
+
+Route::get('/driver-pesanan-selesai/{id}', [DriverController::class, 'driver_pesanan_selesai'])
+    ->middleware(Authenticate::class)
+    ->middleware(IsDriverMiddleware::class);
 
 Route::get('/driver-pesanan-proses', [DashboardController::class, 'driver_pesanan_proses'])
     ->middleware(Authenticate::class)

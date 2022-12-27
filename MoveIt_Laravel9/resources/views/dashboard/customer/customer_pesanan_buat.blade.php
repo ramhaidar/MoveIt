@@ -135,7 +135,8 @@
                 </div> --}}
                 <div class="col-md-0 col-lg-0">
                     <h4 class="mb-3">Isi Form Berikut:</h4>
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate action="{{ route('customer.buat.pesanan') }}" method="POST">
+                        @csrf
                         <div class="row g-3">
                             {{-- <div class="col-sm-6">
                                 <label for="firstName" class="form-label">First name</label>
@@ -174,7 +175,7 @@
 
                             <div class="col-12">
                                 <label for="alamat_pickup" class="form-label">Alamat Pickup</label>
-                                <input type="text" class="form-control" id="alamat_pickup" placeholder="Jl. Telekomunikasi No.1, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40267" required>
+                                <input name="alamat_pickup" type="text" class="form-control" id="alamat_pickup" placeholder="Jl. Telekomunikasi No.1, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40267" required>
                                 <div class="invalid-feedback">
                                     Masukkan Alamat Pickup!
                                 </div>
@@ -182,7 +183,7 @@
 
                             <div class="col-12">
                                 <label for="alamat_tujuan" class="form-label">Alamat Tujuan</label>
-                                <input type="text" class="form-control" id="alamat_tujuan" placeholder="Jl. H. Umayah 1, Citeureup, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257" required>
+                                <input name="alamat_tujuan" type="text" class="form-control" id="alamat_tujuan" placeholder="Jl. H. Umayah 1, Citeureup, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257" required>
                                 <div class="invalid-feedback">
                                     Masukkan Alamat Tujuan!
                                 </div>
@@ -190,9 +191,33 @@
 
                             <div class="col-12">
                                 <label for="berat" class="form-label">Berat (kg)</label>
-                                <input type="text" class="form-control" id="berat" placeholder="1kg" required>
+                                <input name="berat" type="number" class="form-control" id="berat" placeholder="1" required>
                                 <div class="invalid-feedback">
                                     Masukkan Berat Barang!
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="deskripsi" class="form-label">Deskripsi Barang</label>
+                                <input name="deskripsi" type="text" class="form-control" id="deskripsi" placeholder="Barang Pecah Belah" required>
+                                <div class="invalid-feedback">
+                                    Masukkan Deskripsi Barang!
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="jarak" class="form-label">Jarak (km)</label>
+                                <input name="jarak" type="number" class="form-control" id="jarak" placeholder="3" required>
+                                <div class="invalid-feedback">
+                                    Masukkan Jarak Pengiriman!
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="tarif" class="form-label">Tarif</label>
+                                <input name="tarif" type="number" class="form-control" id="tarif" placeholder="123000" required>
+                                <div class="invalid-feedback">
+                                    Masukkan Tarif Pengiriman!
                                 </div>
                             </div>
 

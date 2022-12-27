@@ -46,12 +46,12 @@
         filter: blur(3px);
     }
 
-    .anyClass {
+    /* .anyClass {
         height: 790px;
         width: 1680px;
         overflow-y: scroll;
         overflow-x: scroll;
-    }
+    } */
 
 </style>
 
@@ -438,7 +438,7 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <div class="anyClass">
+                <div class="container-fluid">
                     @yield('contentx')
                 </div>
 

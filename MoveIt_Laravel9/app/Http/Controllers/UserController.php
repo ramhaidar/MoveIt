@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function registrasi_customer_action(Request $request)
     {
-        // dd($request);
+        dd($request);
 
         $request->validate([
             'name' => 'required',
