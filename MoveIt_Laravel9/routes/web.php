@@ -133,6 +133,24 @@ Route::get('/customer-ereceipt', [DashboardController::class, 'customer_ereceipt
     ->middleware(IsCustomerMiddleware::class)
     ->name('customer_ereceipt');
 
+Route::post('/customer-ereceipt', [DashboardController::class, 'customer_ereceipt_action'])
+    ->middleware(Authenticate::class)
+    ->middleware(IsCustomerMiddleware::class)
+    ->name('customer.ereceipt.action');
+
+// Route::get('/customer-ereceipt-lihat', [DashboardController::class, 'customer_ereceipt_lihat'])
+//     ->middleware(Authenticate::class)
+//     ->middleware(IsCustomerMiddleware::class)
+//     ->name('customer_ereceipt_lihat');
+
+// Route::get('/customer-ereceipt/{theid?}', [DashboardController::class, 'customer_ereceipt_id'])
+//     ->middleware(Authenticate::class)
+//     ->middleware(IsCustomerMiddleware::class);
+
+// Route::get('/customer-ereceipt/{theid}', [CustomerController::class, 'customer_ereceipt_lihat'])
+//     ->middleware(Authenticate::class)
+//     ->middleware(IsCustomerMiddleware::class);
+
 Route::get('/customer-komplain-buat', [DashboardController::class, 'customer_komplain_buat'])
     ->middleware(Authenticate::class)
     ->middleware(IsCustomerMiddleware::class)

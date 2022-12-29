@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Driver;
 use App\Models\Pesanan;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -119,21 +120,25 @@ class DashboardController extends Controller
             $min = 200;
             $max = 500;
         }
-        if ($user->is_driver) {
-            $userId = Auth::id();
-            $driver = User::with('driver')->where('id', Auth::id())->get();
+        $userId = Auth::id();
+        $driver = User::with('driver')->where('id', Auth::id())->get();
+        $test = Pesanan::all()->first();
+        $adaisinya = Pesanan::where('berat', '>=', $min)
+                        ->where('berat', '<=', $max)
+                        ->where('is_completed', 0)
+                        ->get()->first();
 
-            return view('dashboard.driver.driver_pesanan_tersedia', [
-                'account' => $user,
-                'drivers' => $driver,
-                'accountId' => $userId,
-                'users' => User::find($userId),
-                'pesanan' => Pesanan::all(),
-                'jenis_Kendaraan' => $jenis_Kendaraan,
-                'min' => $min,
-                'max' => $max,
-            ], );
-        }
+        return view('dashboard.driver.driver_pesanan_tersedia', [
+            'account' => $user,
+            'drivers' => $driver,
+            'accountId' => $userId,
+            'users' => User::find($userId),
+            'pesanan' => Pesanan::all(),
+            'jenis_Kendaraan' => $jenis_Kendaraan,
+            'min' => $min,
+            'max' => $max,
+            'adaisinya' => $adaisinya,
+        ], );
     }
 
     public function driver_pesanan_proses()
@@ -264,16 +269,108 @@ class DashboardController extends Controller
 
     public function customer_ereceipt()
     {
+        // if ($theid != null) {
+        //     $theid = (int) $theid;
+        //     $user = Auth::user();
+        //     $userId = Auth::id();
+        //     $orderan = Pesanan::where('customer_id', Auth::id())->get()->where('id', $theid)->first();
+        //     $pemesan = User::where('id', $orderan->customer_id)->get()->first();
+
+        //     if ($user->is_customer) {
+        //         $userId = Auth::id();
+        //         return view('dashboard.customer.customer_ereceipt', [
+        //             'account' => $user,
+        //             'accountId' => $userId,
+        //             'users' => User::find($userId),
+        //             'pemesan' => $pemesan,
+        //             'orderan' => $orderan,
+        //             'orderid' => $orderan->id,
+        //         ], );
+        //     }
+        // } else {
+        $userId = Auth::id();
+        return view('dashboard.customer.customer_ereceipt', [
+            'account' => Auth::user(),
+            'accountId' => $userId,
+            'users' => User::find($userId),
+            'drivers' => Driver::all(),
+            'pesanan' => Pesanan::where('customer_id', Auth::id())->get()->all(),
+            'orderid' => null,
+        ], );
+        // }
+    }
+
+    public function customer_ereceipt_action(Request $request)
+    {
+        // dd($request->orderid);
+
+        $theid = (int) $request->orderid;
+
         $user = Auth::user();
-        if ($user->is_customer) {
-            $userId = Auth::id();
-            return view('dashboard.customer.customer_ereceipt', [
-                'account' => $user,
-                'accountId' => $userId,
-                'users' => User::find($userId),
-                'drivers' => Driver::all(),
-            ], );
-        }
+        $userId = Auth::id();
+        $orderan = Pesanan::where('customer_id', Auth::id())->get()->where('id', $theid)->first();
+        $pemesan = User::where('id', $orderan->customer_id)->get()->first();
+        $pengantar = User::where('driver_id', $orderan->driver_id)->get()->first();
+
+        return view('dashboard.customer.customer_ereceipt', [
+            'account' => $user,
+            'accountId' => $userId,
+            'users' => User::find($userId),
+            'pemesan' => $pemesan,
+            'orderan' => $orderan,
+            'orderid' => $orderan->id,
+            'pengantar' => $pengantar,
+        ], );
+    }
+
+    public function customer_ereceipt_id($theid)
+    {
+        $user = Auth::user();
+        $userId = Auth::id();
+        $orderan = Pesanan::where('customer_id', Auth::id())->get()->where('id', $theid)->first();
+        $pemesan = User::where('id', $orderan->customer_id)->get()->first();
+
+        // return redirect()->route('customer_ereceipt_lihat')
+        //     ->with('account', $user)
+        //     ->with('accountId', $userId)
+        //     ->with('users', User::find($userId))
+        //     ->with('pemesan', $pemesan)
+        //     ->with('orderan', $orderan)
+        //     ->with('orderid', $orderan->id);
+
+        return view('dashboard.customer.customer_ereceipt_lihat', [
+            'account' => $user,
+            'accountId' => $userId,
+            'users' => User::find($userId),
+            'pemesan' => $pemesan,
+            'orderan' => $orderan,
+            'orderid' => $orderan->id,
+        ], );
+    }
+
+    public function customer_ereceipt_lihat()
+    {
+        $user = Auth::user();
+        $userId = Auth::id();
+        $orderan = Pesanan::where('customer_id', Auth::id())->get()->where('id', $theid)->first();
+        $pemesan = User::where('id', $orderan->customer_id)->get()->first();
+
+        // return redirect()->route('customer_ereceipt_lihat')
+        //     ->with('account', $user)
+        //     ->with('accountId', $userId)
+        //     ->with('users', User::find($userId))
+        //     ->with('pemesan', $pemesan)
+        //     ->with('orderan', $orderan)
+        //     ->with('orderid', $orderan->id);
+
+        return view('dashboard.customer.customer_ereceipt', [
+            'account' => $user,
+            'accountId' => $userId,
+            'users' => User::find($userId),
+            'pemesan' => $pemesan,
+            'orderan' => $orderan,
+            'orderid' => $orderan->id,
+        ], );
     }
 
     public function customer_komplain_buat()

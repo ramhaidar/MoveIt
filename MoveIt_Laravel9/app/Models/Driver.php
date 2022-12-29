@@ -23,6 +23,4 @@ class Driver extends Model
 
     // protected $hidden = [
     // ];
-
-    
 }

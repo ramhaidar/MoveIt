@@ -19,17 +19,20 @@ class Pesanan extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'nama_penerima',
         'alamat_pickup',
         'alamat_tujuan',
         'berat',
         'deskripsi',
         'jarak',
         'tarif',
-        'tanggal',
-        'jam',
+        // 'tanggal',
+        // 'jam',
         'is_completed',
         'customer_id',
         'driver_id',
+        'accepted_at',
+        'completed_at',
     ];
 
     /**
@@ -39,7 +42,7 @@ class Pesanan extends Model
      */
     protected $hidden = [
         'id',
-        'customer_id',
+        // 'customer_id',
     ];
 
     /**
@@ -51,8 +54,20 @@ class Pesanan extends Model
     //     'email_verified_at' => 'datetime',
     // ];
 
-    public function pesanan()
+    // public function pesanan()
+    // {
+    //     return $this->belongsTo(Pesanan::class, 'customer_id', 'id');
+    // }
+
+    public function user()
     {
-        return $this->belongsTo(Pesanan::class, 'customer_id', 'id');
+        // return $this->belongsTo(User::class, 'whatever_id', 'driver_id');
+        return $this->belongsTo(User::class, 'customer_id', 'id');
+    }
+
+    public function driver()
+    {
+        // return $this->belongsTo(User::class, 'whatever_id', 'driver_id');
+        return $this->belongsTo(User::class, 'driver_id', 'driver_id');
     }
 }

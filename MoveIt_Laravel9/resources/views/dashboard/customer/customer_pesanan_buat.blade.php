@@ -1,92 +1,92 @@
 @extends('dashboard.customer.dashboard_customer_template')
 
-@if(!$users->pause_status)
-@section('contentx')
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.104.2">
-    {{-- <title>Checkout example · Bootstrap v5.2</title> --}}
+@if (!$users->pause_status)
+    @section('contentx')
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="">
+            <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+            <meta name="generator" content="Hugo 0.104.2">
+            {{-- <title>Checkout example · Bootstrap v5.2</title> --}}
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+            <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+            <style>
+                .bd-placeholder-img {
+                    font-size: 1.125rem;
+                    text-anchor: middle;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    user-select: none;
+                }
 
-        .b-example-divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
+                @media (min-width: 768px) {
+                    .bd-placeholder-img-lg {
+                        font-size: 3.5rem;
+                    }
+                }
 
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
+                .b-example-divider {
+                    height: 3rem;
+                    background-color: rgba(0, 0, 0, .1);
+                    border: solid rgba(0, 0, 0, .15);
+                    border-width: 1px 0;
+                    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+                }
 
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
+                .b-example-vr {
+                    flex-shrink: 0;
+                    width: 1.5rem;
+                    height: 100vh;
+                }
 
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
+                .bi {
+                    vertical-align: -.125em;
+                    fill: currentColor;
+                }
 
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
+                .nav-scroller {
+                    position: relative;
+                    z-index: 2;
+                    height: 2.75rem;
+                    overflow-y: hidden;
+                }
 
-        .container {
-            max-width: 960px;
-        }
+                .nav-scroller .nav {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    padding-bottom: 1rem;
+                    margin-top: -1px;
+                    overflow-x: auto;
+                    text-align: center;
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                }
 
-    </style>
+                .container {
+                    max-width: 960px;
+                }
+            </style>
 
 
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
-</head>
+            <!-- Custom styles for this template -->
+            <link href="form-validation.css" rel="stylesheet">
+        </head>
 
-<body class="bg-light">
+        <body class="bg-light">
 
-    <div class="container">
-        <main>
-            <div class="py-2 text-center">
-                {{-- <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
-                <h2>Buat Pesanan</h2>
-                {{-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> --}}
-            </div>
+            <div class="container">
+                <main>
+                    <div class="py-2 text-center">
+                        {{-- <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
+                        <h2>Buat Pesanan</h2>
+                        {{-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> --}}
+                    </div>
 
-            <div class="row g-5">
-                {{-- <div class="col-md-5 col-lg-4 order-md-last">
+                    <div class="row g-5">
+                        {{-- <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Your cart</span>
                         <span class="badge bg-primary rounded-pill">3</span>
@@ -133,12 +133,13 @@
                         </div>
                     </form>
                 </div> --}}
-                <div class="col-md-0 col-lg-0">
-                    <h4 class="mb-3">Isi Form Berikut:</h4>
-                    <form class="needs-validation" novalidate action="{{ route('customer.buat.pesanan') }}" method="POST">
-                        @csrf
-                        <div class="row g-3">
-                            {{-- <div class="col-sm-6">
+                        <div class="col-md-0 col-lg-0">
+                            <h4 class="mb-3">Isi Form Berikut:</h4>
+                            <form class="needs-validation" novalidate action="{{ route('customer.buat.pesanan') }}"
+                                method="POST">
+                                @csrf
+                                <div class="row g-3">
+                                    {{-- <div class="col-sm-6">
                                 <label for="firstName" class="form-label">First name</label>
                                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
                                 <div class="invalid-feedback">
@@ -173,60 +174,77 @@
                                 </div>
                             </div> --}}
 
-                            <div class="col-12">
-                                <label for="alamat_pickup" class="form-label">Alamat Pickup</label>
-                                <input name="alamat_pickup" type="text" class="form-control" id="alamat_pickup" placeholder="Jl. Telekomunikasi No.1, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40267" required>
-                                <div class="invalid-feedback">
-                                    Masukkan Alamat Pickup!
-                                </div>
-                            </div>
+                                    <div class="col-12">
+                                        <label for="nama_penerima" class="form-label">Nama Penerima</label>
+                                        <input name="nama_penerima" type="text" class="form-control" id="nama_penerima"
+                                            placeholder="Fawwaz Hamid" required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Nama Penerima!
+                                        </div>
+                                    </div>
 
-                            <div class="col-12">
-                                <label for="alamat_tujuan" class="form-label">Alamat Tujuan</label>
-                                <input name="alamat_tujuan" type="text" class="form-control" id="alamat_tujuan" placeholder="Jl. H. Umayah 1, Citeureup, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257" required>
-                                <div class="invalid-feedback">
-                                    Masukkan Alamat Tujuan!
-                                </div>
-                            </div>
+                                    <div class="col-12">
+                                        <label for="alamat_pickup" class="form-label">Alamat Pickup</label>
+                                        <input name="alamat_pickup" type="text" class="form-control" id="alamat_pickup"
+                                            placeholder="Jl. Telekomunikasi No.1, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40267"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Alamat Pickup!
+                                        </div>
+                                    </div>
 
-                            <div class="col-12">
-                                <label for="berat" class="form-label">Berat (kg)</label>
-                                <input name="berat" type="number" class="form-control" id="berat" placeholder="1" required>
-                                <div class="invalid-feedback">
-                                    Masukkan Berat Barang!
-                                </div>
-                            </div>
+                                    <div class="col-12">
+                                        <label for="alamat_tujuan" class="form-label">Alamat Tujuan</label>
+                                        <input name="alamat_tujuan" type="text" class="form-control" id="alamat_tujuan"
+                                            placeholder="Jl. H. Umayah 1, Citeureup, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Alamat Tujuan!
+                                        </div>
+                                    </div>
 
-                            <div class="col-12">
-                                <label for="deskripsi" class="form-label">Deskripsi Barang</label>
-                                <input name="deskripsi" type="text" class="form-control" id="deskripsi" placeholder="Barang Pecah Belah" required>
-                                <div class="invalid-feedback">
-                                    Masukkan Deskripsi Barang!
-                                </div>
-                            </div>
+                                    <div class="col-12">
+                                        <label for="berat" class="form-label">Berat (kg)</label>
+                                        <input name="berat" type="number" class="form-control" id="berat"
+                                            placeholder="1" required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Berat Barang!
+                                        </div>
+                                    </div>
 
-                            <div class="col-12">
-                                <label for="jarak" class="form-label">Jarak (km)</label>
-                                <input name="jarak" type="number" class="form-control" id="jarak" placeholder="3" required>
-                                <div class="invalid-feedback">
-                                    Masukkan Jarak Pengiriman!
-                                </div>
-                            </div>
+                                    <div class="col-12">
+                                        <label for="deskripsi" class="form-label">Deskripsi Barang</label>
+                                        <input name="deskripsi" type="text" class="form-control" id="deskripsi"
+                                            placeholder="Barang Pecah Belah" required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Deskripsi Barang!
+                                        </div>
+                                    </div>
 
-                            <div class="col-12">
-                                <label for="tarif" class="form-label">Tarif</label>
-                                <input name="tarif" type="number" class="form-control" id="tarif" placeholder="123000" required>
-                                <div class="invalid-feedback">
-                                    Masukkan Tarif Pengiriman!
-                                </div>
-                            </div>
+                                    <div class="col-12">
+                                        <label for="jarak" class="form-label">Jarak (km)</label>
+                                        <input name="jarak" type="number" class="form-control" id="jarak"
+                                            placeholder="3" required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Jarak Pengiriman!
+                                        </div>
+                                    </div>
 
-                            {{-- <div class="col-12">
+                                    <div class="col-12">
+                                        <label for="tarif" class="form-label">Tarif</label>
+                                        <input name="tarif" type="number" class="form-control" id="tarif"
+                                            placeholder="123000" required>
+                                        <div class="invalid-feedback">
+                                            Masukkan Tarif Pengiriman!
+                                        </div>
+                                    </div>
+
+                                    {{-- <div class="col-12">
                                 <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
                                 <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
                             </div> --}}
 
-                            {{-- <div class="col-md-5">
+                                    {{-- <div class="col-md-5">
                                 <label for="country" class="form-label">Country</label>
                                 <select class="form-select" id="country" required>
                                     <option value="">Choose...</option>
@@ -237,7 +255,7 @@
                                 </div>
                             </div> --}}
 
-                            {{-- <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                 <label for="state" class="form-label">State</label>
                                 <select class="form-select" id="state" required>
                                     <option value="">Choose...</option>
@@ -255,9 +273,9 @@
                                     Zip code required.
                                 </div>
                             </div> --}}
-                        </div>
+                                </div>
 
-                        {{-- <hr class="my-4">
+                                {{-- <hr class="my-4">
 
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="same-address">
@@ -269,7 +287,7 @@
                             <label class="form-check-label" for="save-info">Save this information for next time</label>
                         </div> --}}
 
-                        {{-- <hr class="my-4">
+                                {{-- <hr class="my-4">
 
                         <h4 class="mb-3">Payment</h4>
 
@@ -323,19 +341,19 @@
                             </div>
                         </div> --}}
 
-                        <hr class="my-4">
+                                <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Konfirmasi Pesanan</button>
-                    </form>
-                </div>
-            </div>
-        </main>
+                                <button class="w-100 btn btn-primary btn-lg" type="submit">Konfirmasi Pesanan</button>
+                            </form>
+                        </div>
+                    </div>
+                </main>
 
-        <footer class="my-1 pt-1 text-muted text-center text-small">
+                <footer class="my-1 pt-1 text-muted text-center text-small">
 
-        </footer>
+                </footer>
 
-        {{-- <footer class="my-5 pt-5 text-muted text-center text-small">
+                {{-- <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">&copy; 2022 MoveIt!</p>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
@@ -343,78 +361,76 @@
                 <li class="list-inline-item"><a href="#">Support</a></li>
             </ul>
         </footer> --}}
-    </div>
+            </div>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="form-validation.js"></script>
+            <script src="form-validation.js"></script>
 
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (() => {
-            'use strict'
+            <script>
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                (() => {
+                    'use strict'
 
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    const forms = document.querySelectorAll('.needs-validation')
 
-            // Loop over them and prevent submission
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
+                    // Loop over them and prevent submission
+                    Array.from(forms).forEach(form => {
+                        form.addEventListener('submit', event => {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
 
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+                })()
+            </script>
 
-    </script>
-
-</body>
-
-@endsection
-
+        </body>
+    @endsection
 @else
+    @section('contentx')
+        <style>
+            .b-example-divider {
+                height: 3rem;
+                background-color: rgba(0, 0, 0, .0);
+                border: solid rgba(0, 0, 0, .0);
+                border-width: 1px 0;
+                box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .0), inset 0 .125em .5em rgba(0, 0, 0, .0);
+            }
 
-@section('contentx')
-<style>
-    .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .0);
-        border: solid rgba(0, 0, 0, .0);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .0), inset 0 .125em .5em rgba(0, 0, 0, .0);
-    }
+            .b-example-vr {
+                flex-shrink: 0;
+                width: 1.5rem;
+                /* height: 60vh; */
+                height: 670px;
+            }
 
-    .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        /* height: 60vh; */
-        height: 670px;
-    }
+            /* .anyClass {
+            height: 740px;
+            width: 1200px;
+            overflow-y: hidden, scroll;
+            overflow-x: hidden;
+        } */
+        </style>
 
-    /* .anyClass {
-        height: 740px;
-        width: 1200px;
-        overflow-y: hidden, scroll;
-        overflow-x: hidden;
-    } */
-
-</style>
-
-<main class="flex-nowrap px-5">
-    <div class="row">
-        <div class="w-50 container py-2 text-center">
-            <h2>Selesaikan Pesanan yang Sedang Berlangsung Terlebih Dahulu, Untuk Membuat Pesanan Baru</h2>
-        </div>
-        <div class="b-example-divider b-example-vr"></div>
-        <div class="text-center">
-            <a class="w-50 btn btn-primary btn-lg center" href="{{ route('customer_pesanan_proses')}}" role="button">Ke Menu Proses Pesanan</a>
-        </div>
-    </div>
-</main>
-@endsection
+        <main class="flex-nowrap px-5">
+            <div class="row">
+                <div class="w-50 container py-2 text-center">
+                    {{-- <h2>Selesaikan Pesanan yang Sedang Berlangsung Terlebih Dahulu, Untuk Membuat Pesanan Baru</h2> --}}
+                    <h2>Ada Pesanan yang Sedang Berlangsung, Customer Hanya di Perbolehkan Memiliki Satu Pesanan yang
+                        Berlangsung dalam Satu Waktu</h2>
+                </div>
+                <div class="b-example-divider b-example-vr"></div>
+                <div class="text-center">
+                    <a class="w-50 btn btn-primary btn-lg center" href="{{ route('customer_pesanan_proses') }}"
+                        role="button">Ke Menu Proses Pesanan</a>
+                </div>
+            </div>
+        </main>
+    @endsection
 @endif

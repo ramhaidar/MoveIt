@@ -3,109 +3,113 @@
 @extends('app')
 
 @section('content')
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <!-- Custom fonts for this template-->
-    <script src="https://kit.fontawesome.com/3fa1386807.js" crossorigin="anonymous"></script>
-    {{-- <link href="{{asset('css/all.min.css')}}" rel="stylesheet" type="text/css"> --}}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <!-- Custom fonts for this template-->
+        <script src="https://kit.fontawesome.com/3fa1386807.js" crossorigin="anonymous"></script>
+        {{-- <link href="{{asset('css/all.min.css')}}" rel="stylesheet" type="text/css"> --}}
 
-    <!-- Custom styles for this template-->
-    <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 
-</head>
+    </head>
 
-<style>
-    #logokiriatas {
-        width: 75%;
-        height: auto;
-    }
+    <style>
+        #logokiriatas {
+            width: 75%;
+            height: auto;
+        }
 
-    /* .modal-open .container-fluid, .modal-open .container, .modal-open .navbar-nav, .modal-open .navbar {
-        filter: blur(10px);
-    } */
+        /* .modal-open .container-fluid, .modal-open .container, .modal-open .navbar-nav, .modal-open .navbar {
+                                        filter: blur(10px);
+                                    } */
 
-    .modal-open>*:not(#logoutModal) {
-        filter: blur(3px);
-    }
+        .modal-open>*:not(#logoutModal) {
+            filter: blur(3px);
+        }
 
-    .data {
-        white-space: pre;
-    }
+        .data {
+            white-space: pre;
+        }
+    </style>
 
-</style>
+    <body id="page-top">
 
-<body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            {{-- <a>
+                <!-- Sidebar - Brand -->
+                {{-- <a>
                 <div class="sidebar-brand-icon">
                 <img src="/logo/MoveIt_Car.png" class="img-fluid mt-2 mr-2" />
                 </div>
             </a> --}}
-            <a class="sidebar-brand d-flex align-items-center justify-content-center">
-                <div class="sidebar-brand-icon">
-                    {{-- <div class="sidebar-brand-icon rotate-n-15"> --}}
-                    {{-- <i class="fas fa-laugh-wink"></i> --}}
-                    <img src="/logo/MoveIt_Car_Circle.png" class="img-fluid img-thumbnail mt-3" id="logokiriatas" />
+                <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                    <div class="sidebar-brand-icon">
+                        {{-- <div class="sidebar-brand-icon rotate-n-15"> --}}
+                        {{-- <i class="fas fa-laugh-wink"></i> --}}
+                        <img src="/logo/MoveIt_Car_Circle.png" class="img-fluid img-thumbnail mt-3" id="logokiriatas" />
+                    </div>
+                    <div class="sidebar-brand-text ml-0 mr-2 mt-3">Dashboard</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active mt-3">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="fas fa-fw fa-home"></i>
+                        {{-- <i class="fas fa-home"></i> --}}
+                        <span>Home</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Alat-Alat
                 </div>
-                <div class="sidebar-brand-text ml-0 mr-2 mt-3">Dashboard</div>
-            </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active mt-3">
-                <a class="nav-link" href="{{ route('home') }}">
-                    <i class="fas fa-fw fa-home"></i>
-                    {{-- <i class="fas fa-home"></i> --}}
-                    <span>Home</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Alat-Alat
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                {{-- <a class="nav-link" href="">
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    {{-- <a class="nav-link" href="">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Daftar Pesanan Tersedia</span></a> --}}
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#PesananCollapse" aria-expanded="true" aria-controls="SecondCollapse">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Pesanan</span>
-                </a>
-                <div id="PesananCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('driver_pesanan_tersedia') }}">Tersedia</a>
-                        <a class="collapse-item" href="{{ route('driver_pesanan_proses') }}">Proses</a>
-                        <a class="collapse-item" href="{{ route('driver_pesanan_riwayat') }}">Riwayat</a>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#PesananCollapse"
+                        aria-expanded="true" aria-controls="SecondCollapse">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Pesanan</span>
+                    </a>
+                    <div id="PesananCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="{{ route('driver_pesanan_tersedia') }}">Tersedia</a>
+                            <a class="collapse-item" href="{{ route('driver_pesanan_proses') }}">Proses</a>
+                            <a class="collapse-item" href="{{ route('driver_pesanan_riwayat') }}">Riwayat</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
 
-            <li class="nav-item">
+                {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#KomplainCollapse" aria-expanded="true" aria-controls="ThirdCollapse">
                     <i class="fas fa-fw fa-tired"></i>
                     <span>Komplain</span>
@@ -116,10 +120,10 @@
                         <a class="collapse-item" href="{{ route('driver_komplain_riwayat') }}">Riwayat</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            {{-- <li class="nav-item">
+                <!-- Nav Item - Pages Collapse Menu -->
+                {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#FirstCollapse" aria-expanded="true" aria-controls="FirstCollapse">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Komplain</span>
@@ -132,8 +136,8 @@
                 </div>
             </li> --}}
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            {{-- <li class="nav-item">
+                <!-- Nav Item - Utilities Collapse Menu -->
+                {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#SecondCollapse" aria-expanded="true" aria-controls="SecondCollapse">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>E-Receipt</span>
@@ -147,16 +151,16 @@
                 </div>
             </li> --}}
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            {{-- <div class="sidebar-heading">
+                <!-- Heading -->
+                {{-- <div class="sidebar-heading">
                 Lain-Lain
             </div> --}}
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            {{-- <li class="nav-item">
+                <!-- Nav Item - Pages Collapse Menu -->
+                {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -176,21 +180,21 @@
                 </div>
             </li> --}}
 
-            <!-- Nav Item - Charts -->
-            {{-- <li class="nav-item">
+                <!-- Nav Item - Charts -->
+                {{-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li> --}}
 
-            <!-- Nav Item - Tables -->
-            {{-- <li class="nav-item">
+                <!-- Nav Item - Tables -->
+                {{-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Databases</span></a>
             </li> --}}
 
-            {{-- <li class="nav-item">
+                {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Database</span>
@@ -203,40 +207,40 @@
                 </div>
             </li> --}}
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-1" id="sidebarToggle"></button>
-            </div>
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-1" id="sidebarToggle"></button>
+                </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                {{-- <p class="text-center mb-2 fw-bold fst-italic">Logged in as</p> --}}
-                <a class="btn btn-success btn-sm fw-bold fs-6">Driver</a>
-            </div>
+                <!-- Sidebar Message -->
+                <div class="sidebar-card d-none d-lg-flex">
+                    <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                    {{-- <p class="text-center mb-2 fw-bold fst-italic">Logged in as</p> --}}
+                    <a class="btn btn-success btn-sm fw-bold fs-6">Driver</a>
+                </div>
 
-        </ul>
-        <!-- End of Sidebar -->
+            </ul>
+            <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
-            <div id="content">
+                <!-- Main Content -->
+                <div id="content">
 
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
 
-                    <!-- Topbar Search -->
-                    {{-- <form
+                        <!-- Topbar Search -->
+                        {{-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -248,41 +252,46 @@
                             </div>
                         </div>
                     </form> --}}
-                    <div>
-                        <p></p>
-                        @foreach ($drivers as $data)
-                        <a class="fw-lighter text-dark data">Jenis Kendaraan : {{ $data->driver['jenis_kendaraan'] }}</a>
-                        <br>
-                        <a class="fw-lighter text-dark data">Nomor Polisi : {{ $data->driver['nomor_polisi'] }}</a>
-                        @endforeach
-                        <p></p>
-                    </div>
+                        <div>
+                            <p></p>
+                            @foreach ($drivers as $data)
+                                <a class="fw-lighter text-dark data">Jenis Kendaraan :
+                                    {{ $data->driver['jenis_kendaraan'] }}</a>
+                                <br>
+                                <a class="fw-lighter text-dark data">Nomor Polisi : {{ $data->driver['nomor_polisi'] }}</a>
+                            @endforeach
+                            <p></p>
+                        </div>
 
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                    aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small"
+                                                placeholder="Search for..." aria-label="Search"
+                                                aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
+                                    </form>
+                                </div>
+                            </li>
 
-                        <!-- Nav Item - Alerts -->
-                        {{-- <li class="nav-item dropdown no-arrow mx-1">
+                            <!-- Nav Item - Alerts -->
+                            {{-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
@@ -332,8 +341,8 @@
                             </div>
                         </li> --}}
 
-                        <!-- Nav Item - Messages -->
-                        {{-- <li class="nav-item dropdown no-arrow mx-1">
+                            <!-- Nav Item - Messages -->
+                            {{-- <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
@@ -398,63 +407,66 @@
                             </div>
                         </li> --}}
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                            <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $account->name }}</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                {{-- <a class="dropdown-item" href="#">
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $account->name }}</span>
+                                    <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    {{-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a> --}}
-                                <a class="dropdown-item" href="{{ route('ganti-password') }}">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Change Password
-                                </a>
-                                {{-- <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('ganti-password') }}">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Change Password
+                                    </a>
+                                    {{-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
                                 </a> --}}
-                                <div class="dropdown-divider"></div>
-                                {{-- <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal"> --}}
-                                <a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
+                                    <div class="dropdown-divider"></div>
+                                    {{-- <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal"> --}}
+                                    <a class="dropdown-item" href="" data-bs-toggle="modal"
+                                        data-bs-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
 
-                    </ul>
+                        </ul>
 
-                </nav>
-                <!-- End of Topbar -->
+                    </nav>
+                    <!-- End of Topbar -->
 
-                <div class="container-fluid">
-                    @yield('contentx')
-                </div>
+                    <div class="container-fluid">
+                        @yield('contentx')
+                    </div>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <!-- Page Heading -->
+                        {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div> --}}
 
-                    <!-- Content Row -->
-                    <div class="row">
+                        <!-- Content Row -->
+                        <div class="row">
 
-                        {{-- Yield Contentx --}}
-                        {{-- @yield('contentx') --}}
+                            {{-- Yield Contentx --}}
+                            {{-- @yield('contentx') --}}
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        {{-- <div class="col-xl-3 col-md-6 mb-4">
+                            <!-- Earnings (Monthly) Card Example -->
+                            {{-- <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -471,8 +483,8 @@
                             </div>
                         </div> --}}
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        {{-- <div class="col-xl-3 col-md-6 mb-4">
+                            <!-- Earnings (Monthly) Card Example -->
+                            {{-- <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -489,8 +501,8 @@
                             </div>
                         </div> --}}
 
-                        <!-- Pending Requests Card Example -->
-                        {{-- <div class="col-xl-3 col-md-6 mb-4">
+                            <!-- Pending Requests Card Example -->
+                            {{-- <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -507,8 +519,8 @@
                             </div>
                         </div> --}}
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        {{-- <div class="col-xl-3 col-md-6 mb-4">
+                            <!-- Earnings (Monthly) Card Example -->
+                            {{-- <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -533,13 +545,13 @@
                                 </div>
                             </div>
                         </div> --}}
-                    </div>
+                        </div>
 
-                    <!-- Content Row -->
+                        <!-- Content Row -->
 
-                    <div class="row">
+                        <div class="row">
 
-                        {{-- <!-- Area Chart -->
+                            {{-- <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
@@ -570,7 +582,7 @@
                             </div>
                         </div> --}}
 
-                        {{-- <!-- Pie Chart -->
+                            {{-- <!-- Pie Chart -->
                         <div class="col-xl-4 col-lg-5">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
@@ -611,13 +623,13 @@
                                 </div>
                             </div>
                         </div> --}}
-                    </div>
+                        </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
+                        <!-- Content Row -->
+                        <div class="row">
 
-                        <!-- Content Column -->
-                        {{-- <div class="col-lg-6 mb-4">
+                            <!-- Content Column -->
+                            {{-- <div class="col-lg-6 mb-4">
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
@@ -764,74 +776,78 @@
                             </div>
 
                         </div> --}}
+                        </div>
+
                     </div>
+                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>MoveIt! &copy; 2022 Copyright</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>MoveIt! &copy; 2022 Copyright</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    {{-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
-    <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Siap untuk Keluar?</h5>
-                    <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Pilih "Logout" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Batal</button>
-                    <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
+        <!-- Logout Modal-->
+        {{-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
+        <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Siap untuk Keluar?</h5>
+                        <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Pilih "Logout" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Batal</button>
+                        <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap 5.2.2 JavaScript-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <!-- Bootstrap 5.2.2 JavaScript-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+        </script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
-</body>
+    </body>
 @endsection
