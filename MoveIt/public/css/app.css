@@ -1,0 +1,27 @@
+    .login-box {
+        border: solid 1px;
+        width: 500px;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #bdbdbd;
+        border-radius: 15px;
+    }
+
+    .img-thumbnail {
+        thumbnail-padding: 50px;
+        thumbnail-bg: #ff0000;
+        thumbnail-border-width: 100px;
+        thumbnail-border-radius: 20px;
+        thumbnail-border-color: #ff0000;
+        max-width: 50%;
+    }
+
+    .img-circle {
+        width: 200px;
+        height: 200px;
+        border: solid 5px #ffa600;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }

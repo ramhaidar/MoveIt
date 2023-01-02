@@ -1,0 +1,18 @@
+.gradient-custom {
+	/* fallback for old browsers */
+	background: #6a11cb;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, rgb(0, 0, 0), rgba(rgb(125, 125, 125)));
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, rgb(32, 32, 32), rgb(49, 49, 49));
+}
+
+.img-circle {
+	width: 200px;
+	height: 200px;
+	border: solid 5px #ffa600;
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+}
