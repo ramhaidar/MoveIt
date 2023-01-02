@@ -114,7 +114,7 @@
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="{{ route('ganti-password') }}">
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Change Password
+                                        Ganti Password
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">

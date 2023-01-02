@@ -25,12 +25,12 @@ class UserController extends Controller
             'email' => ['required', 'unique:users,email'],
             'nik' => ['required', 'unique:users,nik', 'digits:16', 'numeric'],
             'nomor_telepon' => ['required', 'unique:users,nomor_telepon', 'regex:/^08.*$/i', 'min_digits:11', 'max_digits:13', 'numeric'],
-            'tanggal_lahir' => ['required', 'date_format:d/m/Y'],
+            'tanggal_lahir' => ['required', 'date_format:m/d/Y'],
             'password' => ['required', 'min:6', 'max:12'],
             'password_confirm' => ['required', 'same:password'],
         ]);
 
-        $formatted = DateTime::createFromFormat('d/m/Y', str_replace('-', '/', $request->tanggal_lahir))->format('Y-m-d');
+        $formatted = DateTime::createFromFormat('m/d/Y', str_replace('-', '/', $request->tanggal_lahir))->format('Y-m-d');
 
         $user = new User([
             'name' => $request->name,
@@ -47,11 +47,11 @@ class UserController extends Controller
         return redirect()->route('login')->with('success', 'Registrasi Sukses. Silahkan Login!');
     }
 
-        public function registrasi_driver()
-        {
-            $data['title'] = 'Registrasi Driver';
-            return view('auth/registrasi_driver', $data);
-        }
+    public function registrasi_driver()
+    {
+        $data['title'] = 'Registrasi Driver';
+        return view('auth/registrasi_driver', $data);
+    }
 
     public function registrasi_driver_action(Request $request)
     {
@@ -63,12 +63,12 @@ class UserController extends Controller
             'nomor_polisi' => ['required', 'unique:drivers,nomor_polisi'],
             'nik' => ['required', 'unique:users,nik', 'digits:16', 'numeric'],
             'nomor_telepon' => ['required', 'unique:users,nomor_telepon', 'regex:/^08.*$/i', 'min_digits:11', 'max_digits:13', 'numeric'],
-            'tanggal_lahir' => ['required', 'date_format:d/m/Y'],
+            'tanggal_lahir' => ['required', 'date_format:m/d/Y'],
             'password' => ['required', 'min:6', 'max:12'],
             'password_confirm' => ['required', 'same:password'],
         ]);
 
-        $formatted = DateTime::createFromFormat('d/m/Y', str_replace('-', '/', $request->tanggal_lahir))->format('Y-m-d');
+        $formatted = DateTime::createFromFormat('m/d/Y', str_replace('-', '/', $request->tanggal_lahir))->format('Y-m-d');
 
         $driver = new Driver([
             'jenis_kendaraan' => $request->jenis_kendaraan,

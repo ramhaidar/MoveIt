@@ -8,6 +8,7 @@
                     <tr class="table-primary">
                         <th>ID Pesanan</th>
                         <th>Nama Customer</th>
+                        <th>Nomor Telepon</th>
                         <th>Nama Penerima</th>
                         <th>Alamat Pickup</th>
                         <th>Alamat Tujuan</th>
@@ -26,6 +27,7 @@
                             <tr class="table-light">
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->user->name }}</td>
+                                <td>{{ $item->user->nomor_telepon }}</td>
                                 <td>{{ $item->nama_penerima }}</td>
                                 <td>{{ $item->alamat_pickup }}</td>
                                 <td>{{ $item->alamat_tujuan }}</td>

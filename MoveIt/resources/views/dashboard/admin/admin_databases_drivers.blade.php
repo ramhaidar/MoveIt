@@ -141,7 +141,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <input type="hidden" class="form-control form-control-lg" type="ubahini" name="ubahini" value="{{ $users->id }}" required />
-                                            <button class="btn btn-primary form-control mb-2 mt-2">Ubah Data Customer</button>
+                                            <button class="btn btn-primary form-control mb-2 mt-2">Ubah Data Driver</button>
                                             <a class="btn bg-dark text-white form-control" href="{{ url()->previous() }}">Kembali</a>
                                         </div>
                                     </form>
