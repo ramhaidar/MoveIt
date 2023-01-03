@@ -152,7 +152,6 @@
                             </div>
                             <div class="row text-black">
                                 <div class="col-xl-12">
-                                    {{-- <p class="float-end fw-bold">Tarif: Rp{{ number_format($orderan->tarif, 2, ',', '.') }} --}}
                                     <p class="float-end fw-bold">Tarif: {{ $orderan->tarif }}
                                     </p>
                                 </div>

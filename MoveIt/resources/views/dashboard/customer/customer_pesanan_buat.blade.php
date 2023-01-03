@@ -100,9 +100,7 @@
         <main class="flex-nowrap px-5">
             <div class="row">
                 <div class="w-75 container py-2 text-center">
-                    {{-- <h2>Selesaikan Pesanan yang Sedang Berlangsung Terlebih Dahulu, Untuk Membuat Pesanan Baru</h2> --}}
-                    <h2>Ada Pesanan yang Sedang Berlangsung, Customer Hanya di Perbolehkan Memiliki Satu Pesanan yang
-                        Berlangsung dalam Satu Waktu</h2>
+                    <h2>Ada Pesanan yang Sedang Berlangsung, Customer Hanya di Perbolehkan Memiliki Satu Pesanan yang Berlangsung dalam Satu Waktu</h2>
                 </div>
                 <div class="b-example-divider b-example-vr"></div>
                 <div class="text-center">
