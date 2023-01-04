@@ -160,6 +160,8 @@ class DashboardController extends Controller
 
     public function admin_database_drivers_action(Request $request)
     {
+        $start_time = microtime(true);
+
         if ($request->hapusid != null) {
             User::where('id', $request->hapusid)->update(array('is_deleted' => true));
         }
@@ -206,6 +208,11 @@ class DashboardController extends Controller
             return redirect()->route('admin_database_drivers')->with('success', 'Pengubahan Data Driver Berhasil.');
         }
         return redirect()->route('admin_database_drivers');
+
+        $end_time = microtime(true);
+        $response_time = ($end_time - $start_time) * 1000; // konversi ke milisecond
+
+        echo "Response time: $response_time ms";
     }
     // * [End] Controller Untuk Admin //
 

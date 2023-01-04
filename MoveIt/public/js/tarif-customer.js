@@ -34,6 +34,7 @@ const applyTarif = (jarak, berat) => {
 			return "Rp" + (95000 + ((jarak - 5) * 2000)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 		}
 	}
+	// Engkel
 	if (berat < 199) {
 		if (jarak <= 2) {
 			return "Rp" + (240000 * 1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
@@ -41,6 +42,7 @@ const applyTarif = (jarak, berat) => {
 			return "Rp" + (240000 + ((jarak - 2) * 2500)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 		}
 	}
+	// CDD
 	if (berat < 500) {
 		if (jarak <= 4) {
 			return "Rp" + (480000 * 2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
@@ -48,6 +50,7 @@ const applyTarif = (jarak, berat) => {
 			return "Rp" + (480000 + ((jarak - 2) * 2500)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 		}
 	}
+	// Max Berat
 	if (berat > 500) {
 		return ("Maksimal Berat adalah 500kg")
 	}
