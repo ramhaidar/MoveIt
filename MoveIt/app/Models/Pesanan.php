@@ -27,8 +27,6 @@ class Pesanan extends Model
         'jarak',
         'tarif',
         'metode_pembayaran',
-        // 'tanggal',
-        // 'jam',
         'is_completed',
         'customer_id',
         'driver_id',
@@ -43,7 +41,6 @@ class Pesanan extends Model
      */
     protected $hidden = [
         'id',
-        // 'customer_id',
     ];
 
     /**
@@ -51,18 +48,11 @@ class Pesanan extends Model
      *
      * @var array<string, string>
      */
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
-
-    // public function pesanan()
-    // {
-    //     return $this->belongsTo(Pesanan::class, 'customer_id', 'id');
-    // }
+    protected $casts = [
+    ];
 
     public function user()
     {
-        // return $this->belongsTo(User::class, 'whatever_id', 'driver_id');
         return $this->belongsTo(User::class, 'customer_id', 'id');
     }
 

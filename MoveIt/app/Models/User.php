@@ -49,7 +49,6 @@ class User extends Authenticatable
         'is_driver',
         'is_customer',
         'driver_id',
-        // 'pause_status',
     ];
 
     /**
@@ -57,9 +56,8 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
+    protected $casts = [
+    ];
 
     public function driver()
     {

@@ -159,8 +159,6 @@ class UserController extends Controller
         if ($user) {
             return view('home', ['users' => $user, 'title' => 'Home'], );
         } else {
-            // return redirect('home');
-            // return redirect()->route('/');
             return view('home');
         }
     }
