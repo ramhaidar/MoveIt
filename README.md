@@ -7,6 +7,80 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# MoveIt
+
+MoveIt adalah aplikasi web yang dibangun menggunakan framework Laravel. Aplikasi ini dirancang untuk mengelola layanan transportasi dan logistik, menyediakan berbagai fitur untuk pengguna dengan peran yang berbeda, seperti admin, driver, dan customer.
+
+## Cara Kerja Aplikasi
+
+### 1. Registrasi dan Login
+- **Customer dan Driver** dapat mendaftar melalui halaman registrasi.
+- Setelah registrasi, pengguna dapat login untuk mengakses fitur sesuai dengan peran mereka.
+
+### 2. Dashboard
+- **Admin**: Memiliki akses ke dashboard admin untuk mengelola pengguna, driver, dan pesanan.
+- **Driver**: Memiliki akses ke dashboard driver untuk melihat dan mengelola pesanan yang ditugaskan kepada mereka.
+- **Customer**: Memiliki akses ke dashboard customer untuk membuat, memproses, dan melihat riwayat pesanan.
+
+### 3. Manajemen Pesanan
+- **Customer** dapat membuat pesanan baru melalui halaman `customer-pesanan-buat`.
+- Pesanan yang dibuat akan diproses dan dapat dilihat statusnya di halaman `customer-pesanan-proses`.
+- Riwayat pesanan dapat dilihat di halaman `customer-pesanan-riwayat`.
+
+### 4. E-Receipt
+- **Customer** dapat melihat e-receipt untuk pesanan mereka di halaman `customer-ereceipt`.
+- Admin juga dapat mengelola e-receipt melalui halaman `admin-ereceipt`.
+
+### 5. Komplain
+- **Customer** dapat mengajukan komplain terkait layanan melalui halaman `customer-komplain`.
+
+### 6. Ganti Password
+- Pengguna dapat mengganti password mereka melalui halaman `ganti-password`.
+
+## Middleware
+
+Aplikasi ini menggunakan beberapa middleware untuk mengamankan rute dan memastikan hanya pengguna yang berwenang yang dapat mengakses fitur tertentu:
+- `Authenticate`: Memastikan pengguna sudah login.
+- `IsAdminMiddleware`: Memastikan pengguna adalah admin.
+- `IsCustomerMiddleware`: Memastikan pengguna adalah customer.
+- `IsDriverMiddleware`: Memastikan pengguna adalah driver.
+- `PreventLoggedIn`: Mencegah pengguna yang sudah login mengakses halaman tertentu.
+
+## Instalasi
+
+1. Clone repositori ini:
+    ```sh
+    git clone https://github.com/username/MoveIt.git
+    ```
+2. Masuk ke direktori proyek:
+    ```sh
+    cd MoveIt
+    ```
+3. Install dependensi menggunakan Composer:
+    ```sh
+    composer install
+    ```
+4. Salin file `.env.example` menjadi `.env` dan sesuaikan konfigurasi database:
+    ```sh
+    cp .env.example .env
+    ```
+5. Generate application key:
+    ```sh
+    php artisan key:generate
+    ```
+6. Migrasi database:
+    ```sh
+    php artisan migrate
+    ```
+
+## Kontribusi
+
+Terima kasih telah mempertimbangkan untuk berkontribusi pada proyek MoveIt! Silakan baca panduan kontribusi di [dokumentasi Laravel](https://laravel.com/docs/contributions).
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah [MIT license](https://opensource.org/licenses/MIT).
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
