@@ -13,50 +13,50 @@ class AdminSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run ()
     {
-        User::create([
-            'name' => 'Haidaruddin Muhammad Ramdhan',
-            'username' => 'haidar',
-            'email' => 'haidaruddinmuhammadr@gmail.com',
-            'password' => Hash::make('anakhalal'),
+        User::create ( [ 
+            'name'          => 'Haidaruddin Muhammad Ramdhan',
+            'username'      => 'haidar',
+            'email'         => 'haidaruddinmuhammadr@gmail.com',
+            'password'      => Hash::make ( 'yntkts' ),
             'tanggal_lahir' => '2001/05/24',
-            'nik' => '3525016501830002',
+            'nik'           => '3525016501830002',
             'nomor_telepon' => '081238777306',
-            'is_admin' => '1',
-        ]);
+            'is_admin'      => '1',
+        ] );
 
-        User::create([
-            'name' => 'Radli Maulana Arief',
-            'username' => 'radli',
-            'email' => 'radlimaulanaf@gmail.com',
-            'password' => Hash::make('anakhalal'),
+        User::create ( [ 
+            'name'          => 'Radli Maulana Arief',
+            'username'      => 'radli',
+            'email'         => 'radlimaulanaf@gmail.com',
+            'password'      => Hash::make ( 'yntkts' ),
             'tanggal_lahir' => '2000/04/20',
-            'nik' => '3525016501830001',
+            'nik'           => '3525016501830001',
             'nomor_telepon' => '081282763509',
-            'is_admin' => '1',
-        ]);
+            'is_admin'      => '1',
+        ] );
 
-        User::create([
-            'name' => 'Argya Mauluvy Senjaya',
-            'username' => 'argya',
-            'email' => 'argyamauluvy@gmail.com',
-            'password' => Hash::make('anakhalal'),
+        User::create ( [ 
+            'name'          => 'Argya Mauluvy Senjaya',
+            'username'      => 'argya',
+            'email'         => 'argyamauluvy@gmail.com',
+            'password'      => Hash::make ( 'yntkts' ),
             'tanggal_lahir' => '2002/11/03',
-            'nik' => '3525016501830003',
+            'nik'           => '3525016501830003',
             'nomor_telepon' => '0895375454695',
-            'is_admin' => '1',
-        ]);
+            'is_admin'      => '1',
+        ] );
 
-        User::create([
-            'name' => 'Muhammad Farisal Imtiyaz',
-            'username' => 'farisal',
-            'email' => 'muhammadfarisali@gmail.com',
-            'password' => Hash::make('anakhalal'),
+        User::create ( [ 
+            'name'          => 'Muhammad Farisal Imtiyaz',
+            'username'      => 'farisal',
+            'email'         => 'muhammadfarisali@gmail.com',
+            'password'      => Hash::make ( 'yntkts' ),
             'tanggal_lahir' => '2001/10/01',
-            'nik' => '3525016501830004',
+            'nik'           => '3525016501830004',
             'nomor_telepon' => '081324475884',
-            'is_admin' => '1',
-        ]);
+            'is_admin'      => '1',
+        ] );
     }
 }
