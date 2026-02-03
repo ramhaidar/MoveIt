@@ -6,24 +6,16 @@ const browsersync = require("browser-sync").create();
 const cleanCSS = require("gulp-clean-css");
 const del = require("del");
 const gulp = require("gulp");
-const header = require("gulp-header");
 const merge = require("merge-stream");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
+const { buildBanner, prependBanner } = require("./gulp-tasks/banner-injector");
 
-// Load package.json for banner
+// Load package metadata so we can derive a static banner without lodash.template
 const pkg = require('./package.json');
-
-// Set the banner content
-const banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/StartBootstrap/<%= pkg.name %>/blob/master/LICENSE)\n',
-  ' */\n',
-  '\n'
-].join('');
+const banner = buildBanner(pkg);
 
 // BrowserSync
 function browserSync(done) {
@@ -90,12 +82,10 @@ function css() {
       includePaths: "./node_modules",
     }))
     .on("error", sass.logError)
-    .pipe(autoprefixer({
-      cascade: false
-    }))
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
+  .pipe(autoprefixer({
+    cascade: false
+  }))
+  .pipe(prependBanner(banner))
     .pipe(gulp.dest("./css"))
     .pipe(rename({
       suffix: ".min"
@@ -112,10 +102,8 @@ function js() {
       './js/*.js',
       '!./js/*.min.js',
     ])
-    .pipe(uglify())
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
+  .pipe(uglify())
+  .pipe(prependBanner(banner))
     .pipe(rename({
       suffix: '.min'
     }))
